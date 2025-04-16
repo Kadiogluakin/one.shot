@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>one.shot - Cumming Soon 💦</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>one<span class="dot">.</span>shot</h1>
+            <h2>Cumming Soon <span class="emoji">💦</span></h2>
+        </header>
+
+        <section class="message-area">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </section>
+
+        <section class="form-container">
+            <p>Got a brilliant (or stupidly degen) idea for what <strong>one.shot</strong> should become?</p>
+            <p>Drop your alpha below 👇</p>
+            <form action="{{ url_for('submit') }}" method="POST">
+                <div class="form-group">
+                    <label for="idea">Your Genius Idea (Required AF):</label>
+                    <textarea id="idea" name="idea" rows="4" required placeholder="e.g., AI-powered shitposting bot"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Twitter/TG Handle (Optional, How we moon together?):</label>
+                    <input type="text" id="contact" name="contact" placeholder="e.g., @vitalikbuterin">
+                </div>
+                <button type="submit" class="submit-btn">Send It! 🚀</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 one.shot - Probably Nothing.</p>
+        </footer>
+    </div>
+</body>
+</html> 
